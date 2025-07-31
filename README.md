@@ -6,7 +6,7 @@ A comprehensive Android app for finding public bathrooms with real-time user sub
 
 ### 🗺️ Interactive Map
 - Real-time location tracking
-- Search for nearby bathrooms within customizable radius (0.5km - 20km)
+- Search for nearby bathrooms within customizable radius (1m - 2mi)
 - Multiple data sources: Google Places, Refuge Restrooms, and user submissions
 - Advanced filtering by amenities (gender-neutral, baby-friendly, wheelchair accessible, etc.)
 - Navigation with turn-by-turn directions
