@@ -18,7 +18,7 @@ import com.toiletseva.toiletseva.data.PlaceType
 class PlacesService(private val context: Context) {
     private val placesClient: PlacesClient by lazy {
         if (!Places.isInitialized()) {
-            Places.initialize(context, "YOUR_API_KEY")
+            Places.initialize(context, "YOUR_API_KEY_HERE")
         }
         Places.createClient(context)
     }
