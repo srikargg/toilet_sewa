@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Outer light blue ring -->
+    <path
+        android:fillColor="#3385DFFF"
+        android:pathData="M24,4 a20,20 0 1,0 0.01,0 z"/>
+    <!-- White ring -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M24,11 a13,13 0 1,0 0.01,0 z"/>
+    <!-- Inner solid blue dot -->
+    <path
+        android:fillColor="#FF4285F4"
+        android:pathData="M24,15 a9,9 0 1,0 0.01,0 z"/>
+</vector>

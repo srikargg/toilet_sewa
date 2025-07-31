@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/build.gradle" />
+              <option name="originalContent" value="plugins {&#10;    id 'com.android.application'&#10;    id 'org.jetbrains.kotlin.android'&#10;}&#10;&#10;android {&#10;    namespace 'com.example.toiletsewa'&#10;    compileSdk 34&#10;&#10;    defaultConfig {&#10;        applicationId &quot;com.example.toiletsewa&quot;&#10;        minSdk 21&#10;        targetSdk 34&#10;        versionCode 1&#10;        versionName &quot;1.0&quot;&#10;    }&#10;&#10;    compileOptions {&#10;        sourceCompatibility JavaVersion.VERSION_1_8&#10;        targetCompatibility JavaVersion.VERSION_1_8&#10;    }&#10;&#10;    kotlinOptions {&#10;        jvmTarget = &quot;1.8&quot;&#10;    }&#10;&#10;    buildTypes {&#10;        release {&#10;            minifyEnabled false&#10;            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'&#10;        }&#10;    }&#10;    // ...existing code...&#10;}&#10;&#10;dependencies {&#10;    // ...existing code...&#10;    implementation 'com.google.android.gms:play-services-maps:18.2.0'&#10;    implementation 'com.google.android.libraries.places:places:3.3.0'&#10;    // ...existing code...&#10;}&#10;" />
+              <option name="updatedContent" value="plugins {&#10;    id 'com.android.application'&#10;    id 'org.jetbrains.kotlin.android'&#10;}&#10;&#10;android {&#10;    namespace 'com.example.toiletsewa'&#10;    compileSdk 34&#10;&#10;    defaultConfig {&#10;        applicationId &quot;com.example.toiletsewa&quot;&#10;        minSdk 21&#10;        targetSdk 34&#10;        versionCode 1&#10;        versionName &quot;1.0&quot;&#10;    }&#10;&#10;    compileOptions {&#10;        sourceCompatibility JavaVersion.VERSION_1_8&#10;        targetCompatibility JavaVersion.VERSION_1_8&#10;    }&#10;&#10;    kotlinOptions {&#10;        jvmTarget = &quot;1.8&quot;&#10;    }&#10;&#10;    buildTypes {&#10;        release {&#10;            minifyEnabled false&#10;            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'&#10;        }&#10;    }&#10;}&#10;&#10;dependencies {&#10;    implementation 'com.google.android.gms:play-services-maps:18.2.0'&#10;    implementation 'com.google.android.libraries.places:places:3.3.0'&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/toiletsewa/MainActivity.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/java/com/example/toiletsewa/MainActivity.kt" />
+              <option name="originalContent" value="&#10;" />
+              <option name="updatedContent" value="package com.example.toiletsewa&#10;&#10;import android.Manifest&#10;import android.content.pm.PackageManager&#10;import android.location.Location&#10;import android.os.Bundle&#10;import androidx.appcompat.app.AppCompatActivity&#10;import androidx.core.app.ActivityCompat&#10;import com.google.android.gms.maps.CameraUpdateFactory&#10;import com.google.android.gms.maps.GoogleMap&#10;import com.google.android.gms.maps.OnMapReadyCallback&#10;import com.google.android.gms.maps.SupportMapFragment&#10;import com.google.android.gms.maps.model.LatLng&#10;&#10;class MainActivity : AppCompatActivity(), OnMapReadyCallback {&#10;&#10;    private lateinit var map: GoogleMap&#10;&#10;    override fun onCreate(savedInstanceState: Bundle?) {&#10;        super.onCreate(savedInstanceState)&#10;        setContentView(R.layout.activity_main)&#10;&#10;        val mapFragment = supportFragmentManager&#10;            .findFragmentById(R.id.map_fragment) as SupportMapFragment&#10;        mapFragment.getMapAsync(this)&#10;    }&#10;&#10;    override fun onMapReady(googleMap: GoogleMap) {&#10;        map = googleMap&#10;&#10;        // Enable location if permission granted&#10;        if (ActivityCompat.checkSelfPermission(&#10;                this,&#10;                Manifest.permission.ACCESS_FINE_LOCATION&#10;            ) == PackageManager.PERMISSION_GRANTED ||&#10;            ActivityCompat.checkSelfPermission(&#10;                this,&#10;                Manifest.permission.ACCESS_COARSE_LOCATION&#10;            ) == PackageManager.PERMISSION_GRANTED&#10;        ) {&#10;            map.isMyLocationEnabled = true&#10;&#10;            // Try to center on user's location&#10;            val fusedLocationProviderClient =&#10;                com.google.android.gms.location.LocationServices.getFusedLocationProviderClient(this)&#10;            fusedLocationProviderClient.lastLocation.addOnSuccessListener { location: Location? -&gt;&#10;                if (location != null) {&#10;                    val userLatLng = LatLng(location.latitude, location.longitude)&#10;                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(userLatLng, 14f))&#10;                } else {&#10;                    // Fallback to India&#10;                    val indiaLatLng = LatLng(20.5937, 78.9629)&#10;                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(indiaLatLng, 5f))&#10;                }&#10;            }&#10;        } else {&#10;            // Request location permission or fallback to India&#10;            val indiaLatLng = LatLng(20.5937, 78.9629)&#10;            map.moveCamera(CameraUpdateFactory.newLatLngZoom(indiaLatLng, 5f))&#10;        }&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#10;    android:layout_width=&quot;match_parent&quot;&#10;    android:layout_height=&quot;match_parent&quot;&gt;&#10;&#10;    &lt;fragment&#10;        android:id=&quot;@+id/map_fragment&quot;&#10;        android:name=&quot;com.google.android.gms.maps.SupportMapFragment&quot;&#10;        android:layout_width=&quot;match_parent&quot;&#10;        android:layout_height=&quot;match_parent&quot; /&gt;&#10;&lt;/FrameLayout&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+              <option name="originalContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;color name=&quot;purple_200&quot;&gt;#FFBB86FC&lt;/color&gt;&#10;    &lt;color name=&quot;purple_500&quot;&gt;#FF6200EE&lt;/color&gt;&#10;    &lt;color name=&quot;purple_700&quot;&gt;#FF3700B3&lt;/color&gt;&#10;    &lt;color name=&quot;teal_200&quot;&gt;#FF03DAC5&lt;/color&gt;&#10;    &lt;color name=&quot;teal_700&quot;&gt;#FF018786&lt;/color&gt;&#10;    &lt;color name=&quot;black&quot;&gt;#FF000000&lt;/color&gt;&#10;    &lt;color name=&quot;white&quot;&gt;#FFFFFFFF&lt;/color&gt;&#10;&lt;/resources&gt;" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;color name=&quot;purple_200&quot;&gt;#FFBB86FC&lt;/color&gt;&#10;    &lt;color name=&quot;purple_500&quot;&gt;#6200EE&lt;/color&gt;&#10;    &lt;color name=&quot;purple_700&quot;&gt;#3700B3&lt;/color&gt;&#10;    &lt;color name=&quot;teal_200&quot;&gt;#03DAC5&lt;/color&gt;&#10;    &lt;color name=&quot;teal_700&quot;&gt;#018786&lt;/color&gt;&#10;    &lt;color name=&quot;black&quot;&gt;#000000&lt;/color&gt;&#10;    &lt;color name=&quot;white&quot;&gt;#FFFFFF&lt;/color&gt;&#10;&lt;/resources&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" />
+              <option name="originalContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!--&#10;   Sample backup rules file; uncomment and customize as necessary.&#10;   See https://developer.android.com/guide/topics/data/autobackup&#10;   for details.&#10;   Note: This file is ignored for devices older than API 31&#10;   See https://developer.android.com/about/versions/12/backup-restore&#10;--&gt;&#10;&lt;full-backup-content&gt;&#10;    &lt;!--&#10;   &lt;include domain=&quot;sharedpref&quot; path=&quot;.&quot;/&gt;&#10;   &lt;exclude domain=&quot;sharedpref&quot; path=&quot;device.xml&quot;/&gt;&#10;--&gt;&#10;&lt;/full-backup-content&gt;" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!--&#10;   Sample backup rules file; uncomment and customize as necessary.&#10;   See https://developer.android.com/guide/topics/data/autobackup&#10;   for details.&#10;   Note: This file is ignored for devices older than API 31&#10;   See https://developer.android.com/about/versions/12/backup-restore&#10;--&gt;&#10;&lt;full-backup-content&gt;&#10;    &lt;!-- No rules defined yet --&gt;&#10;&lt;/full-backup-content&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" />
+              <option name="originalContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!--&#10;   Sample data extraction rules file; uncomment and customize as necessary.&#10;   See https://developer.android.com/about/versions/12/backup-restore#xml-changes&#10;   for details.&#10;--&gt;&#10;&lt;data-extraction-rules&gt;&#10;    &lt;cloud-backup&gt;&#10;        &lt;!-- TODO: Use &lt;include&gt; and &lt;exclude&gt; to control what is backed up.&#10;        &lt;include .../&gt;&#10;        &lt;exclude .../&gt;&#10;        --&gt;&#10;    &lt;/cloud-backup&gt;&#10;    &lt;!--&#10;    &lt;device-transfer&gt;&#10;        &lt;include .../&gt;&#10;        &lt;exclude .../&gt;&#10;    &lt;/device-transfer&gt;&#10;    --&gt;&#10;&lt;/data-extraction-rules&gt;" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;!--&#10;   Sample data extraction rules file; uncomment and customize as necessary.&#10;   See https://developer.android.com/about/versions/12/backup-restore#xml-changes&#10;   for details.&#10;--&gt;&#10;&lt;data-extraction-rules&gt;&#10;    &lt;!-- No rules defined yet --&gt;&#10;&lt;/data-extraction-rules&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
