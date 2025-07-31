@@ -18,12 +18,12 @@ import com.toiletseva.toiletseva.data.PlaceType
 class PlacesService(private val context: Context) {
     private val placesClient: PlacesClient by lazy {
         if (!Places.isInitialized()) {
-            Places.initialize(context, "AIzaSyDV_7XSmUzif34CubKXPNkt69LOlWAeK0U")
+            Places.initialize(context, "YOUR_API_KEY")
         }
         Places.createClient(context)
     }
 
-    private val apiKey = "AIzaSyDV_7XSmUzif34CubKXPNkt69LOlWAeK0U"
+    private val apiKey = "YOUR_API_KEY"
     
     private val searchCache = mutableMapOf<String, List<ToiletLocation>>()
     private val cacheTimeout = 5 * 60 * 1000L 

@@ -75,7 +75,7 @@ enum class TransportationMode {
 }
 
 class DirectionsService(private val context: Context) {
-    private val apiKey = "AIzaSyDV_7XSmUzif34CubKXPNkt69LOlWAeK0U"
+    private val apiKey = "YOUR_API_KEY"
 
     suspend fun getDirections(
         origin: LatLng,
