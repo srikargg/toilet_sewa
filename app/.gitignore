@@ -1,1 +1,10 @@
-/build
+# Add your entries here
+local.properties
+app/google-services.json
+*.keystore
+*.jks
+.idea/
+.DS_Store
+/build/
+/app/build/
+.gradle/
